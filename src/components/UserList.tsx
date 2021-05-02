@@ -10,8 +10,6 @@ export const UserList: React.FC<IUserListProps> = ({ page }) => {
     let [listUsers, setListUsers] = useState<IListUsers|null>(null);
     let history = useHistory();
 
-    console.log(listUsers);
-
     function displayUsers(): React.ReactElement[]|null {
         if (listUsers !== null) {
             let firstRowIndex = ((page - 1) * listUsers.per_page) + 1;
@@ -23,7 +21,7 @@ export const UserList: React.FC<IUserListProps> = ({ page }) => {
                        <td>{user.first_name}</td>
                        <td>{user.last_name}</td>
                        <td>
-                           <NavLink to='/' className='text-primary'>
+                           <NavLink to={`/user/${user.id}`} className='btn-link'>
                                Show
                            </NavLink>
                        </td>
@@ -83,5 +81,5 @@ export const UserList: React.FC<IUserListProps> = ({ page }) => {
         </div>
     ) : (
         <p>No users</p>
-    )
+    );
 };

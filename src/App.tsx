@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Page from "./pages/Page";
+import UserPage from "./pages/UserPage";
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
       <Switch>
         <Route exact path='/' component={Homepage}/>
         <Route path='/users/:page' component={Page}/>
+        <Route path='/user/:id' component={UserPage}/>
       </Switch>
     </Router>
   );

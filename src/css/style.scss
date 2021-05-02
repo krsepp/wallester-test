@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.user-avatar {
+  max-height: 75px;
+}
+
+.user-page__back-link {
+  font-size: 2.2rem;
+  line-height: 1;
+  padding-left: 0;
+}
