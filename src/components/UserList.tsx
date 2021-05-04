@@ -43,7 +43,7 @@ const UserList: React.FC<IUserListProps> = ({ page }) => {
 
     return listUsers !== null ? (
         <div className='user-list'>
-            <UserListHeader/>
+            {/*<UserListHeader/>*/}
 
             <Table responsive hover>
                 <thead>
@@ -72,6 +72,7 @@ const UserList: React.FC<IUserListProps> = ({ page }) => {
                 nextLinkClassName='page-link'
                 activeClassName='active'
                 initialPage={page-1}
+                disableInitialCallback={true}
                 onPageChange={handlePageClick}
             />
         </div>

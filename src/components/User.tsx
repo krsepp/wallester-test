@@ -3,6 +3,7 @@ import IUserProps from '../interfaces/IUserProps';
 import ISingleUser from '../interfaces/ISingleUser';
 import {getSingleUser} from '../services/reqres';
 import {Table} from 'react-bootstrap';
+import HeaderContainer from "../containers/HeaderContainer";
 
 const User: React.FC<IUserProps> = ({ id }) => {
     const [user, setUser] = useState<ISingleUser|null>(null);
@@ -13,7 +14,7 @@ const User: React.FC<IUserProps> = ({ id }) => {
 
     return user !== null ? (
         <div className='user'>
-            <h2 className='h2 mb-4'>{`${user.data.first_name} ${user.data.last_name}`}</h2>
+            <HeaderContainer headerText={`${user.data.first_name} ${user.data.last_name}`}/>
 
             <Table responsive hover>
                 <thead>
