@@ -1,6 +1,6 @@
 import React from 'react';
 import IPageContainerProps from '../interfaces/IPageContainerProps';
-import Navigation from "../components/Navigation";
+import Navigation from '../components/Navigation';
 
 const PageContainer: React.FC<IPageContainerProps> = ({ className, children }) => {
     return (

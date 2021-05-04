@@ -2,7 +2,7 @@ import React from 'react';
 import {useParams} from 'react-router';
 import PageContainer from '../containers/PageContainer';
 import UserList from '../components/UserList';
-import {NavLink} from "react-router-dom";
+import {NavLink} from 'react-router-dom';
 import HeaderContainer from '../containers/HeaderContainer';
 
 const Page: React.FC = () => {

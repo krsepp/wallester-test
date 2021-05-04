@@ -3,7 +3,7 @@ import IUserProps from '../interfaces/IUserProps';
 import ISingleUser from '../interfaces/ISingleUser';
 import {getSingleUser} from '../services/reqres';
 import {Table} from 'react-bootstrap';
-import HeaderContainer from "../containers/HeaderContainer";
+import HeaderContainer from '../containers/HeaderContainer';
 
 const User: React.FC<IUserProps> = ({ id }) => {
     const [user, setUser] = useState<ISingleUser|null>(null);

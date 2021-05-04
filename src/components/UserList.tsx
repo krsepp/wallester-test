@@ -5,7 +5,6 @@ import {getListUsers} from '../services/reqres';
 import IListUsers from '../interfaces/IListUsers';
 import ReactPaginate from 'react-paginate';
 import {Table} from 'react-bootstrap';
-import UserListHeader from './UserListHeader';
 
 const UserList: React.FC<IUserListProps> = ({ page }) => {
     const [listUsers, setListUsers] = useState<IListUsers|null>(null);
@@ -41,10 +40,9 @@ const UserList: React.FC<IUserListProps> = ({ page }) => {
         getListUsers(page).then(listUsers => setListUsers(listUsers));
     }, [page]);
 
+
     return listUsers !== null ? (
         <div className='user-list'>
-            {/*<UserListHeader/>*/}
-
             <Table responsive hover>
                 <thead>
                     <tr>
@@ -72,6 +70,7 @@ const UserList: React.FC<IUserListProps> = ({ page }) => {
                 nextLinkClassName='page-link'
                 activeClassName='active'
                 initialPage={page-1}
+                forcePage={page-1}
                 disableInitialCallback={true}
                 onPageChange={handlePageClick}
             />
