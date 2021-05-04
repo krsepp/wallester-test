@@ -1,6 +1,6 @@
-import React from "react";
-import PageContainer from "../containers/PageContainer";
-import {UserList} from "../components/UserList";
+import React from 'react';
+import PageContainer from '../containers/PageContainer';
+import UserList from '../components/UserList';
 
 const Homepage: React.FC = () => {
     const currentPage: number = 1;

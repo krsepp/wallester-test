@@ -1,13 +1,13 @@
-import React from "react";
-import {useParams, useHistory} from "react-router";
-import {Button} from "react-bootstrap";
-import PageContainer from "../containers/PageContainer";
-import {User} from "../components/User";
+import React from 'react';
+import {useParams, useHistory} from 'react-router';
+import {Button} from 'react-bootstrap';
+import PageContainer from '../containers/PageContainer';
+import User from '../components/User';
 
 const UserPage: React.FC = () => {
+    const history = useHistory();
     const { id } = useParams<{ id: string }>();
-    let idNum = +id;
-    let history = useHistory();
+    const idNum = +id;
 
     return (
       <PageContainer className={'user-page'}>

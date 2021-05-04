@@ -1,9 +1,9 @@
-import React from "react";
-import IPageContainerProps from "../interfaces/IPageContainerProps";
+import React from 'react';
+import IPageContainerProps from '../interfaces/IPageContainerProps';
 
-const PageContainer: React.FC<IPageContainerProps> = ({className, children}) => {
+const PageContainer: React.FC<IPageContainerProps> = ({ className, children }) => {
     return (
-        <div className={`page ${className || ''} py-4`}>
+        <div className={`page ${className || ''} p-3`}>
             {children}
         </div>
     );

@@ -1,14 +1,15 @@
-import React, {useEffect, useState} from "react";
-import {NavLink, useHistory} from "react-router-dom";
-import IUserListProps from "../interfaces/IUserListProps";
-import {getListUsers} from "../services/reqres";
-import IListUsers from "../interfaces/IListUsers";
+import React, {useEffect, useState} from 'react';
+import {NavLink, useHistory} from 'react-router-dom';
+import IUserListProps from '../interfaces/IUserListProps';
+import {getListUsers} from '../services/reqres';
+import IListUsers from '../interfaces/IListUsers';
 import ReactPaginate from 'react-paginate';
-import {Table} from "react-bootstrap";
+import {Table} from 'react-bootstrap';
+import UserListHeader from './UserListHeader';
 
-export const UserList: React.FC<IUserListProps> = ({ page }) => {
-    let [listUsers, setListUsers] = useState<IListUsers|null>(null);
-    let history = useHistory();
+const UserList: React.FC<IUserListProps> = ({ page }) => {
+    const [listUsers, setListUsers] = useState<IListUsers|null>(null);
+    const history = useHistory();
 
     function displayUsers(): React.ReactElement[]|null {
         if (listUsers !== null) {
@@ -17,7 +18,7 @@ export const UserList: React.FC<IUserListProps> = ({ page }) => {
             return listUsers.data.map((user, index) => {
                return (
                    <tr key={user.id}>
-                       <th scope="row">{firstRowIndex + index}</th>
+                       <th scope='row'>{firstRowIndex + index}</th>
                        <td>{user.first_name}</td>
                        <td>{user.last_name}</td>
                        <td>
@@ -42,20 +43,15 @@ export const UserList: React.FC<IUserListProps> = ({ page }) => {
 
     return listUsers !== null ? (
         <div className='user-list'>
-            <div className='mb-4 d-flex justify-content-between align-items-baseline'>
-                <h2 className='h2'>Users</h2>
-                <NavLink to='/user/add' className='btn btn-primary'>
-                    Add
-                </NavLink>
-            </div>
+            <UserListHeader/>
 
             <Table responsive hover>
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Actions</th>
+                        <th scope='col'>#</th>
+                        <th scope='col'>First</th>
+                        <th scope='col'>Last</th>
+                        <th scope='col'>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,23 +59,25 @@ export const UserList: React.FC<IUserListProps> = ({ page }) => {
                 </tbody>
             </Table>
 
-            <ReactPaginate pageCount={listUsers.total_pages}
-                           pageRangeDisplayed={3}
-                           marginPagesDisplayed={1}
-                           containerClassName='pagination justify-content-center mt-3'
-                           pageClassName='page-item'
-                           previousClassName='d-none'
-                           nextClassName='d-none'
-                           pageLinkClassName='page-link'
-                           previousLinkClassName='page-link'
-                           nextLinkClassName='page-link'
-                           activeClassName='active'
-                           initialPage={page-1}
-                           onPageChange={handlePageClick}
+            <ReactPaginate
+                pageCount={listUsers.total_pages}
+                pageRangeDisplayed={3}
+                marginPagesDisplayed={1}
+                containerClassName='pagination justify-content-center mt-3'
+                pageClassName='page-item'
+                previousClassName='d-none'
+                nextClassName='d-none'
+                pageLinkClassName='page-link'
+                previousLinkClassName='page-link'
+                nextLinkClassName='page-link'
+                activeClassName='active'
+                initialPage={page-1}
+                onPageChange={handlePageClick}
             />
-
         </div>
     ) : (
         <p>No users</p>
     );
 };
+
+export default UserList;
